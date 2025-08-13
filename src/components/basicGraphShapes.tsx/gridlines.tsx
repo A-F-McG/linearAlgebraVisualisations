@@ -13,7 +13,11 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
   for (var y of range) {
     for (var z of range) {
       lines.push(
-        <Line start={[-maxAxisValue, y, z]} end={[maxAxisValue, y, z]} />
+        <Line
+          start={[-maxAxisValue, y, z]}
+          end={[maxAxisValue, y, z]}
+          opacity={getOpacity(y, z)}
+        />
       );
     }
   }
@@ -22,7 +26,11 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
   for (var x of range) {
     for (var z of range) {
       lines.push(
-        <Line start={[x, -maxAxisValue, z]} end={[x, maxAxisValue, z]} />
+        <Line
+          start={[x, -maxAxisValue, z]}
+          end={[x, maxAxisValue, z]}
+          opacity={getOpacity(x, z)}
+        />
       );
     }
   }
@@ -31,14 +39,18 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
   for (var x of range) {
     for (var y of range) {
       lines.push(
-        <Line start={[x, y, -maxAxisValue]} end={[x, y, maxAxisValue]} />
+        <Line
+          start={[x, y, -maxAxisValue]}
+          end={[x, y, maxAxisValue]}
+          opacity={getOpacity(x, y)}
+        />
       );
     }
   }
 
-  return (
-    <group>
-      {lines}
-    </group>
-  );
+  return <group>{lines}</group>;
+}
+
+function getOpacity(a: number, b: number) {
+  return a == 0 && b == 0 ? 1 : 0.2;
 }
