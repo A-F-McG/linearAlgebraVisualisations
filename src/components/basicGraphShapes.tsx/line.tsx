@@ -3,12 +3,12 @@ import * as THREE from "three";
 export function Line({
   start,
   end,
-  colourHexadecimal = 0x00ff00,
+  colour = 0x00ff00,
   opacity = 1,
 }: {
   start: [number, number, number];
   end: [number, number, number];
-  colourHexadecimal?: number;
+  colour?: number;
   opacity?: number;
 }) {
   const geometry = new THREE.BufferGeometry().setFromPoints([
@@ -16,10 +16,15 @@ export function Line({
     new THREE.Vector3(end[0], end[1], end[2]),
   ]);
   const material = new THREE.LineBasicMaterial({
-    color: colourHexadecimal,
+    color: colour,
     transparent: true,
     opacity: opacity,
   });
   const line = new THREE.Line(geometry, material);
-  return <primitive object={line} />;
+
+  return (
+    <>
+      <primitive object={line} />
+    </>
+  );
 }
