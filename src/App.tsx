@@ -1,11 +1,14 @@
 import "./App.css";
+import { ChoosingBasisVectors } from "./components/choosingBasisVectors";
 import SceneCanvas from "./components/SceneCanvas";
 
 function App() {
+  const maxAxisValue = 3;
 
   return (
     <>
-      <SceneCanvas />
+      <ChoosingBasisVectors maxAxisValue={maxAxisValue} />
+      <SceneCanvas maxAxisValue={maxAxisValue} />
     </>
   );
 }

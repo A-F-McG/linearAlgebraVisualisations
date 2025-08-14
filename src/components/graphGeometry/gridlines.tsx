@@ -1,7 +1,7 @@
 import type { JSX } from "react";
-import { Line } from "./line";
-import { Arrow } from "./arrow";
-import { Text } from "./text";
+import { Line } from "../basicGraphShapes.tsx/line";
+import { Text } from "../basicGraphShapes.tsx/text";
+import { Arrow } from "../basicGraphShapes.tsx/arrow";
 
 export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
   const range = Array.from(
@@ -10,9 +10,8 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
   );
 
   const lines: JSX.Element[] = [];
-  const xAxisColour = 0xf54290;
-  const yAxisColour = 0x42f5d7;
-  const zAxisColour = 0xf59642;
+  const mainAxesColour = 0xf542a1;
+  const axesThickness = 0.04;
 
   //   xAxisParallelLines
   for (var y of range) {
@@ -22,7 +21,8 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
           <Arrow
             start={[-maxAxisValue, 0, 0]}
             end={[maxAxisValue, 0, 0]}
-            colour={xAxisColour}
+            colour={mainAxesColour}
+            thickness={axesThickness}
           />
         ) : (
           <Line
@@ -40,13 +40,17 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
     for (var z of range) {
       lines.push(
         x == 0 && z == 0 ? (
-          <Arrow start={[0, -maxAxisValue, 0]} end={[0, maxAxisValue, 0]} />
+          <Arrow
+            start={[0, -maxAxisValue, 0]}
+            end={[0, maxAxisValue, 0]}
+            colour={mainAxesColour}
+            thickness={axesThickness}
+          />
         ) : (
           <Line
             start={[x, -maxAxisValue, z]}
             end={[x, maxAxisValue, z]}
             opacity={getOpacity(x, z)}
-            colour={yAxisColour}
           />
         )
       );
@@ -61,7 +65,8 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
           <Arrow
             start={[x, y, -maxAxisValue]}
             end={[x, y, maxAxisValue]}
-            colour={zAxisColour}
+            colour={mainAxesColour}
+            thickness={axesThickness}
           />
         ) : (
           <Line
@@ -77,9 +82,9 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
   return (
     <group>
       {lines}
-      <Text text="x" position={[maxAxisValue, 0, 0]} colour={xAxisColour} />
-      <Text text="y" position={[0, maxAxisValue, 0]} colour={yAxisColour} />
-      <Text text="z" position={[0, 0, maxAxisValue]} colour={zAxisColour}/>
+      <Text text="x" position={[maxAxisValue, 0, 0]} colour={mainAxesColour} />
+      <Text text="y" position={[0, maxAxisValue, 0]} colour={mainAxesColour} />
+      <Text text="z" position={[0, 0, maxAxisValue]} colour={mainAxesColour} />
     </group>
   );
 }
