@@ -1,15 +1,24 @@
-export function ChoosingBasisVectors({maxAxisValue} : {maxAxisValue: number}) {
+export function ChoosingBasisVectors({
+  maxAxisValue,
+}: {
+  maxAxisValue: number;
+}) {
   return (
     <>
       <fieldset>
-        <legend>I want the vector i to move to:</legend>
+        <legend>Transform i to</legend>
 
         <div className="flex flex-col">
           <div>
             <label htmlFor="ix">
               i <sub>x</sub>
             </label>
-            <input type="number" min={-maxAxisValue} max ={maxAxisValue} id="ix" />
+            <input
+              type="number"
+              min={-maxAxisValue}
+              max={maxAxisValue}
+              id="ix"
+            />
           </div>
 
           <label htmlFor="iy">

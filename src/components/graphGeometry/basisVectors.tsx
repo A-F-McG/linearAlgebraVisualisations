@@ -1,4 +1,4 @@
-import { Arrow } from "../basicGraphShapes.tsx/arrow";
+import { Vector } from "../basicGraphShapes.tsx/vector";
 import { Text } from "../basicGraphShapes.tsx/text";
 
 export function BasisVectors() {
@@ -6,7 +6,7 @@ export function BasisVectors() {
 
   return (
     <>
-      <Arrow
+      <Vector
         start={[0, 0, 0]}
         end={[1, 0, 0]}
         colour={0x42f5f5}
@@ -14,7 +14,7 @@ export function BasisVectors() {
       />
       <Text text="i" position={[1, 0, 0]} colour={0x42f5f5} />
 
-      <Arrow
+      <Vector
         start={[0, 0, 0]}
         end={[0, 1, 0]}
         colour={0x42f5f5}
@@ -22,7 +22,7 @@ export function BasisVectors() {
       />
       <Text text="j" position={[0, 1, 0]} colour={0x42f5f5} />
 
-      <Arrow
+      <Vector
         start={[0, 0, 0]}
         end={[0, 0, 1]}
         colour={0x42f5f5}

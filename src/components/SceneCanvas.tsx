@@ -2,7 +2,8 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControlsManual } from "./OrbitControlsManual";
 import { GridLines } from "./graphGeometry/gridlines";
 import { BasisVectors } from "./graphGeometry/basisVectors";
-import { Arrow } from "./basicGraphShapes.tsx/arrow";
+import { Vector } from "./basicGraphShapes.tsx/vector";
+import { AnimatedVectorTransformation } from "./graphGeometry/animatedArrowTransformation";
 
 export default function SceneCanvas({
   maxAxisValue,
@@ -19,6 +20,11 @@ export default function SceneCanvas({
       <group>
         <GridLines maxAxisValue={maxAxisValue} />
         <BasisVectors />
+        <AnimatedVectorTransformation
+          start={[0, 0, 0]}
+          end={[0, 2, 0]}
+          colour={0x42f5f5}
+        />
         {/* <Arrow start={[0, 0, 0]} end={[1, 1, 1]}  /> */}
       </group>
     </Canvas>

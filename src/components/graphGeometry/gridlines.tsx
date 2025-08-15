@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import { Line } from "../basicGraphShapes.tsx/line";
 import { Text } from "../basicGraphShapes.tsx/text";
-import { Arrow } from "../basicGraphShapes.tsx/arrow";
+import { Vector } from "../basicGraphShapes.tsx/vector";
 
 export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
   const range = Array.from(
@@ -18,7 +18,7 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
     for (var z of range) {
       lines.push(
         y == 0 && z == 0 ? (
-          <Arrow
+          <Vector
             start={[-maxAxisValue, 0, 0]}
             end={[maxAxisValue, 0, 0]}
             colour={mainAxesColour}
@@ -40,7 +40,7 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
     for (var z of range) {
       lines.push(
         x == 0 && z == 0 ? (
-          <Arrow
+          <Vector
             start={[0, -maxAxisValue, 0]}
             end={[0, maxAxisValue, 0]}
             colour={mainAxesColour}
@@ -62,7 +62,7 @@ export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
     for (var y of range) {
       lines.push(
         x == 0 && y == 0 ? (
-          <Arrow
+          <Vector
             start={[x, y, -maxAxisValue]}
             end={[x, y, maxAxisValue]}
             colour={mainAxesColour}
