@@ -1,7 +1,7 @@
 import type { JSX } from "react";
-import { Line } from "../basicGraphShapes.tsx/line";
-import { Text } from "../basicGraphShapes.tsx/text";
-import { Vector } from "../basicGraphShapes.tsx/vector";
+import { Line } from "../basicGraphShapes/line";
+import { Text } from "../basicGraphShapes/text";
+import { Vector } from "../basicGraphShapes/vector";
 
 export function GridLines({ maxAxisValue }: { maxAxisValue: number }) {
   const range = Array.from(
