@@ -1,0 +1,152 @@
+/* Basis Vectors Container */
+.basis-vectors-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 320px;
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.basis-vectors-container h2 {
+  margin: 0 0 20px 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #2d3748;
+  text-align: center;
+}
+
+/* Matrix Grid */
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Vector Column */
+.vector-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.vector-column h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-wrapper label {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #2d3748;
+  font-family: 'Times New Roman', serif;
+  min-width: 24px;
+}
+
+.input-wrapper label sub {
+  font-size: 0.75em;
+  color: #718096;
+}
+
+/* Input Styling - WCAG Compliant Pastels */
+.input-wrapper input {
+  width: 60px;
+  padding: 8px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f7fafc, #edf2f7);
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #2d3748;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(145deg, #ffffff, #f7fafc);
+}
+
+.input-wrapper input:hover:not(:focus) {
+  border-color: #cbd5e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Column-specific pastel backgrounds (WCAG AA compliant) */
+.vector-column:nth-child(1) .input-wrapper input {
+  background: linear-gradient(145deg, #fef5e7, #fed7aa);
+  border-color: #f6ad55;
+}
+
+.vector-column:nth-child(1) .input-wrapper input:focus {
+  border-color: #ed8936;
+  box-shadow: 0 0 0 3px rgba(237, 137, 54, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vector-column:nth-child(2) .input-wrapper input {
+  background: linear-gradient(145deg, #f0fff4, #c6f6d5);
+  border-color: #68d391;
+}
+
+.vector-column:nth-child(2) .input-wrapper input:focus {
+  border-color: #48bb78;
+  box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vector-column:nth-child(3) .input-wrapper input {
+  background: linear-gradient(145deg, #ebf8ff, #bee3f8);
+  border-color: #63b3ed;
+}
+
+.vector-column:nth-child(3) .input-wrapper input:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .basis-vectors-container {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .input-wrapper input {
+    border: 2px solid #000000;
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .input-wrapper input:focus {
+    border-color: #000000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .input-wrapper input {
+    transition: none;
+  }
+}

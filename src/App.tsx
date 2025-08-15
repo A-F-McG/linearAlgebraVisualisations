@@ -1,5 +1,5 @@
 import "./App.css";
-import { ChoosingBasisVectors } from "./components/choosingBasisVectors";
+import { ChoosingBasisVectors } from "./components/choosingBasisVectors/choosingBasisVectors";
 import SceneCanvas from "./components/SceneCanvas";
 
 function App() {
