@@ -8,7 +8,7 @@ export function ChoosingBasisVectors({
       <fieldset>
         <legend>Transform i to</legend>
 
-        <div className="flex flex-col">
+        <div className="input-group">
           <div>
             <label htmlFor="ix">
               i <sub>x</sub>
